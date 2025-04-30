@@ -1,0 +1,64 @@
+    * {
+        margin: 0;
+        padding: 0;
+      }
+	  .chartCard4 {
+        width: 100vw;
+        height: 40px;
+        background: #F5F5F5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+	
+      }
+.chartBox {
+        width: 95%;
+        padding: 10px;
+        border-radius: 20px;
+		border: solid 1px rgba(0, 0, 0, 1);
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+	  .chartCard {
+	  height:auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+      }
+	  .chartCard2 {
+	  height:auto;
+	  min-height:400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+	        .chartBox2 {
+        width: 1200px;
+        padding: 10px;
+        border-radius: 20px;
+        border: solid 1px #CECECE;
+        background: white;
+      }
+	  h2{
+	  color:#7f7676;
+	  }
+	  .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: linear-gradient(90deg, #ffffff,#6B82A5, #223147, #6B82A5, #ffffff);		
+        color: #ffffff;
+		justify-content: center;
+		text-align: center;
+		display:flex;
+      }
+	  .chartMenu p {
+        padding: 10px;
+        font-size: 21px;
+		justify-content: center;
+      }
+	 .chartBox{
+	  width: 90%;	  
+	  justify-content: center;
+	  display: flex;
+      align-items: center;
+	  }

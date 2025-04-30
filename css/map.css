@@ -1,0 +1,326 @@
+
+    #map{
+        height: 100%;
+        width: 100%;
+		flex: 1;
+    }
+        table, th, td {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+
+  #sidebar{
+ 
+  padding: 10px;
+  overflow-y: auto;
+  resize: vertical;
+  max-height:35%;
+  min-height:11vh;
+  position: relative;
+  }
+#resize-handel{
+ background-color: #DDD;
+position: absolute;
+right:50;
+width: 20px;
+height: 20px;
+transform: translate(50%,50%);
+cursor: n-resize;
+z-index: 1
+}
+#sidebar-handle{
+position: fixed;
+top: 10px;
+right: 50%;
+transform: translateX(50%);
+rotate:(90deg);
+ background-color: #333;
+ color: white;
+ padding: 5px;
+ width: 30px;
+ height:15px;
+ text-align: center;
+ border: none;
+ cursor:pointer;
+ z-index:1
+}
+div.ex1 { 
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+  }
+.btnItems{
+border-radius: 5px;
+border: 1px solid #b3b3b3;
+background-color: white;
+color: black;
+padding:4px 8px;
+text-align: center; 
+}
+.btnItems:hover {
+  background-color: black;
+  color: white;
+}
+.btnItems1{
+border-radius: 5px;
+border: 1px solid #b3b3b3;
+background-color: white;
+color: black;
+padding:3px 6px;
+ text-align: center;
+}
+.btnItems2{
+border-radius: 5px;
+border: 1px solid #b3b3b3;
+background-color: white;
+color: #006bb3;
+padding:4px 8px;
+ text-align: center;
+}
+.btnItems2:hover {
+  background-color: #006bb3;
+  color: white;
+}
+.btnItems3{
+border-radius: 5px;
+border: 1px solid #b3b3b3;
+background-color: white;
+color: #008000;
+padding:4px 24px;
+ text-align: center;
+}
+.btnItems3:hover {
+  background-color: #04AA6D;
+  color: white;
+}
+#saved-locations {
+  color: black;
+  padding: 8px 16px;
+  border: 1px solid 595959;
+  border-color: 1px solid #595959;
+  cursor: pointer;
+  user-select: none;
+  padding:4px 8px;
+  border-radius: 5px;
+}
+.select-selected {
+  background-color: DodgerBlue;
+}
+.hoverTable{
+          width:100%;       
+      }
+      .hoverTable td{ 
+       padding:7px; border:#0d0d0d 1px solid;
+      }
+      /* Define the default color for all the table rows */
+      .hoverTable tr{
+          background: white;
+      }
+      /* Define the hover highlight color for the table row  */
+      .hoverTable tr:hover {
+            background-color: #dbeffc; cursor: pointer	   
+      }
+      .selected-row{
+        background-color: #0537c2;
+        color: white;
+      }
+      #myTable {
+        border-collapse: collapse;
+        border: 1px solid rgb(145, 140, 140);
+        font-size: 15px;
+    }
+th, td {
+  text-align: left;
+  padding: 3px;
+}
+tr:nth-child(even) {background-color: #eeeeee;}
+fieldset{
+    background-color: rgb(238, 238, 238);
+    margin-top: 2px;
+    margin-bottom: 1px;  
+}    
+#ram{
+padding-top:3px;
+padding-bottom:3px;
+}
+
+#geolocate {
+
+                position: absolute;
+                top: 555px;
+                left: 18px;
+                z-index: 502;                
+                background-color: white;
+                border: 1px solid #848584;
+                cursor: pointer;
+            }
+#convert {
+position: fixed;
+top: 392px;
+left:8px;
+z-index: 401;                
+background-color: white;
+border: 1px solid #848584;
+cursor: pointer;
+}
+
+#btnInfo{
+font-size: 14px;
+color: blue;
+}
+#mySpan2 {
+position: absolute;
+top: 607px;
+left:142px;              
+background-color: rgba(255, 255, 255, 0.8);
+}
+#mySpan3 {
+position: absolute;
+top: 607px;
+left:80px;
+z-index: 1001;                
+background-color: rgba(255, 255, 255, 0.8);
+color: blue;
+}
+#footer     {
+                height:30px;
+                background-color: #ffffff;
+				position: fixed;
+				bottom:0;
+				width:98%;
+            }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.dropbtn {
+  background-color: white;
+  color: black;
+  padding: 6px;
+  font-size: 14px;
+  border: none;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 500;
+
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 6px 16px;
+  text-decoration: none;
+  display: block;
+
+}
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color:  #f1f1f1;}
+ #valBox{
+                block-size: 2px;
+                width: 100%;
+                height: 5px;
+                cursor: pointer;
+                }
+            #demo{
+                color: rgb(255, 255, 255);
+              }
+              .bindTooltip{
+                background-color: transparent;
+              }
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;/* Stay in place */
+  z-index: 1010; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+ padding-left: 1100px; /* Location of the box */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.2); /* Black w/ opacity */ 
+}
+  #excelInput {
+    display: none; /* إخفاء الزر الأصلي */
+  }
+
+  .custom-file-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  .custom-file-button:hover {
+    background-color: #45a049;
+  }
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-header {
+  padding: 1px 4px;
+  background-color: #5cb85c;
+  color: white;
+}
+.modal-body {padding: 2px 16px;}
+
+#filterOption {
+      display: none;
+    }
+	#bottum-lat{	
+	border-color: black;
+	border: solid 1px black;
+	}
+/*.dropdown-menu input[type="checkbox"] {
+  margin-right: 3px;
+}*/
+#dropzone {
+  width: 8%;
+  padding:4px;
+  background: #b4c6e3;
+  color: rgb(18, 2, 100);
+  text-align: center;
+  font-size: 14px;
+  border: 2px dashed #081421;
+  cursor: pointer;
+}
+#dropzone.dragover {
+  background: #70caf8;
+  border-color: #0077cc;
+}
