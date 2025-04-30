@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="En">
 <head>
     <meta charset="UTF-8">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/bootstrap.bundle.min.js"></script>		    
-    <script src="js/turf.min.js" async></script>
-    <link rel="stylesheet" href="js/leaflet.css">
-    <link rel="stylesheet" href="css/map.css">
-    <title>SPC</title>  
+    <link rel="shortcut icon" type="image/x-icon" href="js/images/spc.png"  />
+	<link rel="stylesheet" href="js/leaflet.css">
+	<link rel="stylesheet" href="css/map.css">
+    <title>SPC 1992-2017</title>  
     <link rel="stylesheet" href="css/buttons.dataTables.min.css">
     <link rel="stylesheet" href="css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="src/L.Control.ZoomBar.css"/>
@@ -17,19 +16,23 @@
     <link rel="stylesheet" href="js/leaflet-measure.css">
     <link rel="stylesheet" href="src/Leaflet.LinearMeasurement.css" />
     <link rel="stylesheet" href="dist/L.Control.Locate.min.css" />
+    <script src="js/bootstrap.bundle.min.js"></script>		    
+	<script src="js/turf.min.js" async></script>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/leaflet.js"></script>   
     <script src="js/leaflet-measure.js"></script>
     <script src="js/leaflet-control-geocoder.Geocoder.js"></script> 
     <script src="js/leaflet.draw.js"></script>
+    <script type="text/javascript" src="src/L.Control.ZoomBar.js"></script>
     <script src="js/FileSaver.js"></script>
     <script src="js/proj4.js"></script>
     <script src="js/dxf-parser.js"></script>
     <script src="js/catiline.js"></script>
-    <script src="js/leaflet-providers.js"></script>
+	<script src="js/leaflet.shpfile.js"></script>
+	<script src="js/leaflet-providers.js"></script>
     <script src="js/jquery.min.js"></script>             
-    <script src="js/FileSaver.min.js"></script>
-    <script src="js/xlsx.full.min.js"></script>
+	<script src="js/FileSaver.min.js"></script>
+	<script src="js/xlsx.full.min.js"></script>
 </head>
 <body>
     <div id="map"></div>
@@ -46,17 +49,8 @@
        <script src="js/labels.js"></script>
        <script src="js/L.Path.DashFlow.js"></script>	 
 	   </div>
-
-       
-      
-      
-
-
-
     <div  id="sidebar" >
-
    <div id="bottum-lat">
-
     Lat: <input type="text" onKeyUp="LatngToXy()" style="width: 80px ; text-align: center"id="latInput" style="background-blend-mode:difference;">
     DMS °<input type="text" onKeyUp="glat()" style="width: 25px ; text-align: center"id="glatInput">
     '<input type="text" onKeyUp="mlat()" style="width: 25px ; text-align: center"id="mlatInput">
@@ -68,10 +62,7 @@
    X-Lam:<input type="text" onKeyUp="xyToLatng()" style="width: 80px ; text-align: center"id="xInput" style="background-blend-mode:difference;">
    Y-Lam: <input type="text" onKeyUp="xyToLatng()" style="width: 80px ; text-align: center; right: 250px"; id="yInput" >
    E-Utm:<input type="text" onKeyUp="LatngToE()" onchange="LatngToE()" style="width: 80px ; text-align: center"id="EInput" style="background-blend-mode:difference;">
-   N-Utm: <input type="text" onKeyUp="LatngToN()" onchange="LatngToN()"  style="width: 80px ; text-align: center; right: 250px"; id="NInput" >
-
-   
-
+   N-Utm: <input type="text" onKeyUp="LatngToN()" onchange="LatngToN()"  style="width: 80px ; text-align: center; right: 250px"; id="NInput" >  
 <label id = "nameLabel">Name: </label><input type="text" id="nameInput" placeholder="Name " style="width: 200px ;" title="input">
 <input type="text" id="pfadInput" placeholder="Pfad " style="display:none;" title="Path">
 <input type="text" id="file-path" placeholder="Drop Bilder hier" style="display:none;" title="Drop"> 
@@ -82,11 +73,8 @@
     <img src="js/images/excel2.png" alt="excel_icon" style="width: 27px;">
 </button>
    <button  type="button" id="btJson"  disabled title="Export Table as JSON" onclick="exportTableToGeoJSON()" ><img src="js/images/jsonIcon3.png" alt="json_icon " style='width:30px'></button>
-
 <button  type="button"  id="btnTest" onClick="btnBuffer()">Buffer</button>
 <input type="text" id="BufInput" placeholder="Meter" style="width: 50px ;"> 
-  
-
 <label id = "nameLabel2">Status: </label><select id="statusInput">
     <option value="-">-</option>
     <option value="Oil">Oil</option>
@@ -100,15 +88,9 @@
         <option value="EPSG:4326">WGS84</option>
     </select>
   
-
-	<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-	 
-<input type="file" id="excelInput" accept=".xlsx, .xls" onchange="importExcel(event)" style="display: none;">
- 
-    
-  <button  type="button"   id="convert" title="save " ><img src="js/images/saveIcon5.png" alt="save_icon" style='width:25px' border: 0 ></button>
-
-   
+	<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">	 
+<input type="file" id="excelInput" accept=".xlsx, .xls" onchange="importExcel(event)" style="display: none;">  
+  <button  type="button"   id="convert" title="save " ><img src="js/images/saveIcon5.png" alt="save_icon" style='width:25px' border: 0 ></button> 
    <label id="dropzone" style="background-color: #7ae8fe68; color: rgb(4, 54, 237); padding: 2px 8px; border-radius: 8px; cursor: pointer;" class="custom-file-button"> Drop DXF Here</label>
     <button id="dxfToJson" disabled onclick="downloadGeoJSON()">DXF to GeoJSON</button>
     <button id="clearMap"  onclick="clearMap()">Clear map</button>
@@ -117,7 +99,6 @@
 </div>
   </div>
 <script>
-
         var mrkCurrentLocation;
         var posCurrent;
         var posLastTime;
@@ -236,7 +217,7 @@ layers: 'SRTM30-Colored-Hillshade'
 });
 //__________________________________END Layers
     L.control.layers({
-        'Osm': osm,
+        'Osm (H)': osm,
         'GoogleTerrain':GoogleTerrainHybrid.addTo(map),
         "Google": L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
             opacity: 1.0,
@@ -330,9 +311,6 @@ layers: 'SRTM30-Colored-Hillshade'
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
 
         .title += 'Search for a place';
-//=========================================DRAW=EVENT======
-
-//=========================================================
     map.on(L.Draw.Event.CREATED, function (event) {
 
         var layer = event.layer;
@@ -340,7 +318,6 @@ layers: 'SRTM30-Colored-Hillshade'
         drawnItems.addLayer(layer);
 
     });
-//=========================================================
         map.attributionControl.setPrefix('');
 
             L.control.scale().addTo(map);
@@ -380,8 +357,7 @@ layers: 'SRTM30-Colored-Hillshade'
             }
 
         }
-//================================================
-     map.on('draw:created', function(event){
+ map.on('draw:created', function(event){
 
 var layer = event.layer,
 
@@ -399,86 +375,45 @@ var props = feature.properties =feature.properties || {};
 
 drawnItems.addLayer(layer);
      });
-//====================================================Export--to--GeoJSON===
   var div = document.createElement('div');
   var div2 = document.createElement('div2');
   var div3 = document.createElement('div3');
   div.id = 'coordsDiv';
   div2.id = 'mySpan2';
   div3.id = 'mySpan3';
-
   div.style.position='absolute';
-
   div.style.bottom='0';
-
   div.style.right='0';
-
   div.style.zIndex='999';
-
   div.style.backgroundColor='#FEFFF4';
-
   document.getElementById('map').appendChild(div);
   document.getElementById('map').appendChild(div2);
   document.getElementById('map').appendChild(div3);
-
   proj4.defs("EPSG:4326","+proj=longlat +datum=WGS84 +no_defs");
-
   proj4.defs("EPSG:25832","+proj=utm +zone=32 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs");
-
-//--------------------------------------------------------XY----------COORDINAT
-    </script>
-    <script src ="js/indexSY.js"></script>
-    <script type="text/javascript" src="src/Leaflet.LinearMeasurement.js"></script>
-    <script src="src/main.js"></script>
-	  
+</script>
+<script src ="js/indexSY.js"></script>
+<script type="text/javascript" src="src/Leaflet.LinearMeasurement.js"></script>
+<script src="src/main.js"></script>
+<script>
         function createPDF() {
-
             var sTable = document.getElementById('tab').innerHTML;
-
-           // var txt = document.getElementById('ddselect').innerHTML;
-
-           // var x = document.getElementById("ddselect").value;
-
             var style = "<style>";
-
             style = style + "table {width: 100%;font: 17px Calibri;}";
-
             style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
-
             style = style + "padding: 2px 3px;text-align: center;}";
-
-            style = style + "</style>";
-
-            // CREATE A WINDOW OBJECT.
-
+            style = style + "</style>";        
             var win = window.open('', '', 'height=700,width=700');
-
             win.document.write('<html><head>');
-
             win.document.write('<title>Tabelle JAO</title>'+'Projektion: ');   
-	// <title> FOR PDF HEADER.
-
             win.document.write(style);          
-	// ADD STYLE INSIDE THE HEAD TAG.
-
             win.document.write('</head>');
-
             win.document.write('<body>');
-
             win.document.write(sTable);         
-	// THE TABLE CONTENTS INSIDE THE BODY TAG.
-
             win.document.write('</body></html>');
-
-           // win.document.write('<title> By J.Alloush</title>');
-
-            win.document.close(); 	
-	// CLOSE THE CURRENT WINDOW.
-       
+            win.document.close(); 	 
             win.print();    
-	// PRINT THE CONTENTS.
         }
-
         </script>
         <script>
    async function getData(){
@@ -584,20 +519,10 @@ DragDropItem.setStyle({fillOpacity: opacityValue});
 drawnItems.setStyle({fillOpacity: opacityValue});
 });
 
-
-
-
-//-------------------------------------------------------------------------------------------------------
-
-//___________________________________________________________________________________
 var savedLocationsSelect = document.getElementById('saved-locations');
 var saveButton = document.getElementById('save-button');
-
 </script> 
  <script src ="js/indexSY.js"></script>
 </body>
 
-
-
 </html>
-
