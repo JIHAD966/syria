@@ -44,11 +44,8 @@ function importExcel(event) {
                 lon = transformed[0];
                 lat = transformed[1];
             }
-
             if (!lat || !lon) return;
-
             var markerOptions = getMarkerColor(status);
-
             // تجهيز نص Popup
             var popupContent = "";
              popupContent = '<table style="border-collapse: collapse;">';
@@ -61,9 +58,7 @@ headers.forEach(function(key) {
       <td style="border:1px solid #ccc; padding:4px;">${entry[key] || "-"}</td>
     </tr>`;
 });
-
 popupContent += '</table>';
-
             var marker = L.circleMarker([lat, lon], {
                 radius: 6,
 				color: 'black',     // لون الحد الخارجي
@@ -73,15 +68,21 @@ popupContent += '</table>';
             }).bindPopup(popupContent);
 
             marker.addTo(DragDropItem);
-
             // بناء صف الجدول
-            var row = document.createElement('tr');
-            headers.forEach(function(key) {
-                var td = document.createElement('td');
-                td.textContent = entry[key] || "-";
-                row.appendChild(td);
-            });
-
+             var row = document.createElement('tr');
+           headers.forEach(function(key) {
+    var td = document.createElement('td');  
+    if (key.toLowerCase() === 'status') {
+        const statusValue = entry[key] || "Unknown";
+        const colorObj = getMarkerColor(statusValue);      
+        td.innerHTML = `<span style="display: inline-block; width: 10px; height: 10px; 
+                         background-color: ${colorObj.fillColor}; border: 1px solid ${colorObj.color}; 
+                         border-radius: 50%; margin-right: 5px;"></span>${statusValue}`;
+    } else {
+        td.textContent = entry[key] || "-";
+    }    
+    row.appendChild(td);
+});
             row.addEventListener('click', function() {
                 if (selectedRow) selectedRow.classList.remove('selected');
                 row.classList.add('selected');
