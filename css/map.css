@@ -158,7 +158,7 @@ padding-bottom:3px;
             }
 #convert {
 position: fixed;
-top: 392px;
+top: 425px;
 left:8px;
 z-index: 401;                
 background-color: white;
@@ -323,4 +323,5 @@ body {
 #dropzone.dragover {
   background: #70caf8;
   border-color: #0077cc;
+
 }
